@@ -1,0 +1,30 @@
+:root {
+    --color-dark: #3A5F6F;
+    --color-cyan: #7ECDC8;
+    --color-pink: #F3AFCD;
+
+    --color-dark-alt: #292a32;
+    --color-light: #ffffff;
+    --color-accent: #5570FF;
+    --color-gray: #FBFBFC;
+    --color-gray-alt: #e0e0e0;
+    --color-shadow: rgba(22, 28, 45, 0.05);
+
+    --border: 2px solid var(--color-accent);
+    --border-radius: 14px;
+    --border-radius-small: 7px;
+    --border-radius-large: 32px;
+
+    --font-family-base: "Nunito", sans-serif;
+
+    --container-width: 1240px;
+    --container-padding-x: 24px;
+
+    --section-padding-y: 80px;
+
+    --input-height: 64px;
+    --button-height: 64px;
+    --icon-button-height: 30px;
+
+    --transition-duration: 0.3s;
+}

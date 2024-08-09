@@ -1,0 +1,47 @@
+.button {
+    @include reset-button;
+    height: var(--button-height);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 8px;
+
+    padding: 0 50px;
+    @include fluid-text(20, 16);
+    font-weight: 800;
+    border-radius: var(--border-radius-large);
+
+    color: var(--color-light);
+    background: var(--color-dark);
+    border: 2px solid var(--color-dark);
+
+    @include hover {
+        color: var(--color-dark);
+        background: var(--color-light);
+
+    }
+
+    &--cyan {
+        color: var(--color-light);
+        background: var(--color-cyan);
+        border-color: var(--color-cyan);
+
+        @include hover {
+            color: var(--color-cyan);
+            background: var(--color-light);
+        }
+    }
+
+    &--alt {
+        font-size: 16px;
+        color: var(--color-dark);
+        background: var(--color-light);
+        border: 2px solid var(--color-dark);
+
+        @include hover {
+            color: var(--color-light);
+            background: var(--color-dark);
+        }
+    }
+}

@@ -1,0 +1,311 @@
+.form {
+
+    & h2 {
+        position: relative;
+        margin-bottom: clamp(1rem, 0.386rem + 2.73vw, 2.5rem);
+        max-width: 800px;
+        text-align: left;
+        text-wrap: balance;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -40px;
+            display: block;
+            width: 100%;
+            height: 4px;
+            background: var(--color-cyan);
+
+            @include tablet {
+                width: 80%;
+                bottom: -24px;
+            }
+
+            @include tablet {
+                bottom: -16px;
+            }
+        }
+    }
+
+    &__step {
+        margin-top: clamp(2.5rem, 1.477rem + 4.55vw, 5rem);
+
+        & h3 {
+            @include fluid-text(32, 20);
+            font-weight: 800;
+        }
+    }
+
+    &__content {
+        width: 100%;
+        margin-top: clamp(2rem, 1.795rem + 0.91vw, 2.5rem);
+        display: flex;
+        flex-wrap: wrap;
+        gap: clamp(1.5rem, 1.091rem + 1.82vw, 2.5rem);
+
+        @include mobile {
+            flex-direction: column;
+        }
+
+        & .wrap {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            width: 100%;
+
+            & label {
+                flex-direction: row;
+                align-items: center;
+                gap: 10px;
+                width: auto;
+
+                @include fluid-text(20, 16);
+                font-weight: 500;
+            }
+        }
+
+        & .address {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            width: calc(50% - 20px);
+
+            @include mobile {
+                width: 100%;
+            }
+
+            & label {
+                width: 100%;
+            }
+        }
+
+        & .medical {
+            display: flex;
+            align-items: center;
+            gap: clamp(1.5rem, 1.091rem + 1.82vw, 2.5rem);
+            width: 100%;
+
+            @include mobile {
+                flex-direction: column;
+            }
+        }
+    }
+
+    label {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        width: calc(50% - 20px);
+        font-size: clamp(1rem, 0.186rem + 1.69vw, 1.5rem);
+        font-weight: 700;
+
+        @include mobile {
+            width: 100%;
+            font-size: 20px
+        }
+
+        &.full {
+            width: 100%;
+
+            & .form__content {
+                margin: 0;
+            }
+        }
+
+        &.small {
+            max-width: 120px;
+            width: 100%;
+        }
+    }
+
+    input,
+    select {
+        margin: 0;
+        @include fluid-text(20, 16);
+        font-weight: 500;
+        outline: none;
+        width: 100%;
+        height: 64px;
+        padding: 16px 24px;
+        color: var(--color-dark);
+        border-radius: 40px;
+        border: 1px solid rgba(58, 95, 111, 0.16);
+
+        &::placeholder {
+            color: #3A5F6F;
+        }
+
+
+        @include mobile {
+            height: 56px;
+        }
+
+        &:focus-visible {
+            border: 1px solid var(--color-cyan);
+        }
+    }
+
+    textarea {
+        margin: 0;
+        @include fluid-text(20, 16);
+        font-weight: 500;
+        outline: none;
+        width: 100%;
+        min-height: 120px;
+        padding: 16px 24px;
+        color: var(--color-dark);
+        border-radius: 24px;
+        border: 1px solid rgba(58, 95, 111, 0.16);
+        resize: none;
+
+        &:focus-visible {
+            border: 1px solid var(--color-cyan);
+        }
+    }
+
+
+
+    .hidden-textarea {
+        display: none;
+    }
+
+    .error {
+        color: red;
+    }
+
+    .error-message {
+        color: red;
+        font-size: .875rem;
+        display: none;
+        line-height: 1.25rem;
+        font-weight: 500;
+    }
+
+    & .button {
+        margin-top: clamp(2.5rem, 1.477rem + 4.55vw, 5rem);
+    }
+
+    /* Стилизованный чекбокс */
+    .custom-radio {
+        user-select: none;
+        position: relative;
+        cursor: pointer;
+
+        /* Скрыть стандартный чекбокс */
+        & input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        /* Стиль для видимого элемента чекбокса */
+        & .radiomark {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background-color: #F9FAFB;
+            border-radius: 50%;
+            position: relative;
+            cursor: pointer;
+            border: 1px solid rgba(175, 186, 202, 1);
+            transition: all .3s ease;
+
+
+            /* Отображение "галочки" внутри чекбокса */
+            &::after {
+                content: "";
+                position: absolute;
+                display: block;
+                left: 50%;
+                top: 50%;
+                translate: -50% -50%;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                background: url(/assets/images/icon/check.svg) no-repeat center;
+                transition: all .3s ease;
+            }
+        }
+    }
+
+    /* При отмеченном чекбоксе изменить цвет и показать "галочку" */
+    .custom-radio input[type="radio"]:checked+.radiomark {
+        background-color: var(--color-cyan);
+        border: 1px solid var(--color-cyan);
+
+        &::after {
+            opacity: 1;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    /* Стилизованный чекбокс */
+    .custom-checkbox {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        // cursor: pointer;
+        user-select: none;
+        position: relative;
+
+        /* Скрыть стандартный чекбокс */
+        & input[type="checkbox"] {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        /* Стиль для видимого элемента чекбокса */
+        & .checkmark {
+            display: inline-block;
+            width: 48px;
+            height: 28px;
+            background-color: var(--color-dark);
+            border-radius: 14px;
+            position: relative;
+            cursor: pointer;
+
+            /* Отображение "галочки" внутри чекбокса */
+            &::after {
+                content: "";
+                position: absolute;
+                display: block;
+                left: 2px;
+                top: 2px;
+                width: 24px;
+                height: 24px;
+                border-radius: 50%;
+                background: var(--color-light);
+                transform: rotate(45deg);
+            }
+        }
+    }
+
+    /* При отмеченном чекбоксе изменить цвет и показать "галочку" */
+    .custom-checkbox input[type="checkbox"]:checked+.checkmark {
+        background-color: var(--color-accent);
+
+        &::after {
+            left: auto;
+            right: 2px;
+        }
+    }
+
+
+}

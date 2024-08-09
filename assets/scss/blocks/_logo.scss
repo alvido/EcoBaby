@@ -1,0 +1,15 @@
+.logo {
+
+    @include hover {
+        scale: 1.1;
+    }
+
+    &__image {
+        max-width: 110px;
+        width: 100%;
+
+        @include mobile {
+        max-width: 70px;
+        }
+    }
+}

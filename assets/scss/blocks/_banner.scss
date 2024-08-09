@@ -1,0 +1,76 @@
+.banner {
+
+    & .wrapper {
+        padding: clamp(2rem, 1.386rem + 2.73vw, 3.5rem) clamp(1.5rem, 0.068rem + 6.36vw, 5rem);
+        background: var(--color-pink);
+        border-radius: 40px;
+        color: var(--color-light);
+        font-weight: 800;
+
+        @include tablet {
+            flex-direction: column-reverse;
+        }
+    }
+
+    & p {
+        @include fluid-text(32, 20);
+        max-width: 75%;
+        position: relative;
+        z-index: 1;
+
+        @include tablet {
+            margin-top: 16px;
+            max-width: none;
+        }
+    }
+
+    & .absolute {
+        position: absolute;
+        bottom: -18px;
+        right: -66px;
+
+        @include desktop {
+            right: 0;
+        }
+
+        @include tablet {
+            position: static;
+            margin: 0 auto;
+        }
+    }
+
+    & .content {
+        max-width: 800px;
+
+        & .absolute {
+            top: 0;
+            right: 42px;
+        }
+
+        & h2 {
+            text-align: left;
+            margin-bottom: 16px;
+
+            @include phone {
+                text-align: center
+            }
+        }
+
+        & p {
+            @include fluid-text(24, 16);
+            font-weight: 500;
+
+            @include phone {
+                text-align: center;
+            }
+        }
+
+        & .button {
+            margin-top: clamp(1.5rem, 1.295rem + 0.91vw, 2rem);
+
+            @include phone {
+                margin-inline: auto;
+            }
+        }
+    }
+}

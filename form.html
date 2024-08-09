@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>EcoBaby</title>
+    <link rel="icon" type="image/png" href="assets/images/header/logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__inner container">
+            <a href="/" class="header__logo logo">
+                <img class="logo__image" src="assets/images/header/logo.svg" alt="logo">
+            </a>
+            <nav class="header__nav navigation">
+                <ul class="navigation__list">
+                    <li class="navigation__item"><a href="/" class="navigation__link">Главная</a></li>
+                    <li class="navigation__item"><a href="/#about" class="navigation__link">О нас</a></li>
+                    <li class="navigation__item"><a href="/form.html" class="navigation__link">Анкета</a></li>
+                    <li class="navigation__item"><a href="/#contacts" class="navigation__link">Контакты</a></li>
+                </ul>
+                <ul class="navigation__list navigation__list--contact">
+                    <li class="navigation__item"><a href="mailto:info@ecobaby.co.il" class="navigation__link"> <img
+                                src="assets/images/icon/mail.svg" alt="">info@ecobaby.co.il</a></li>
+                    <li class="navigation__item"><a href="tel:+97258-720-1166" class="navigation__link"><img
+                                src="assets/images/icon/phone.svg" alt="">+97258-720-1166</a></li>
+                    <li class="navigation__item"><a href="https://t.me/ecobabyfertility" class="navigation__link"><img
+                                src="assets/images/icon/TelegramLogo.svg" alt="">@ecobabyfertility</a></li>
+                </ul>
+            </nav>
+            <button class="header__burger burger" id="burgerButton">
+                <span>Menu</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="form">
+            <div class="container">
+                <h2>
+                    Страница регистрации для донорства яйцеклеток
+                </h2>
+                <form action="">
+                    <div class="form__step">
+                        <h3>
+                            Данные женщины
+                        </h3>
+                        <div class="form__content">
+                            <label for="womanName">
+                                Имя
+                                <input class="form__input" type="text" id="womanName" placeholder="Lyla">
+                                <span class="error-message"></span>
+                            </label>
+                            <label for="womanSurname">
+                                Фамилия
+                                <input class="form__input" type="text" id="womanSurname" placeholder="Haley">
+                                <span class="error-message"></span>
+                            </label>
+
+                            <label for="womanStatus">
+                                Семейное положение
+                                <select id="womanStatus">
+                                    <option value="" disabled selected>Выберите опцию</option>
+                                    <option value="1">Опция 1</option>
+                                    <option value="2">Опция 2</option>
+                                    <option value="3">Опция 3</option>
+                                </select>
+                            </label>
+                            <label for="womanChildren">
+                                Количество детей
+                                <input class="form__input" type="number" id="womanChildren" placeholder="0">
+                                <span class="error-message"></span>
+                            </label>
+
+                            <label for="womanPhone">
+                                Телефон
+                                <input class="form__input" type="tel" id="womanPhone" placeholder="946-501-2341">
+                                <span class="error-message"></span>
+                            </label>
+                            <label for="womanEmail">
+                                Электронная почта
+                                <input class="form__input" type="email" id="womanEmail" placeholder="example@mail.com">
+                                <span class="error-message"></span>
+                            </label>
+
+                            <label for="womanCity">
+                                Город
+                                <input class="form__input" type="text" id="womanCity" placeholder="Grantborough">
+                                <span class="error-message"></span>
+                            </label>
+                            <div class="address">
+                                <label for="womanStreet">
+                                    Улица
+                                    <input class="form__input" type="text" id="womanStreet" placeholder="Hilll Island">
+                                    <span class="error-message"></span>
+                                </label>
+                                <label class="small" for="womanHouse">
+                                    №
+                                    <input class="form__input" type="number" id="womanHouse" placeholder="961">
+                                    <span class="error-message"></span>
+                                </label>
+                            </div>
+
+                            <div class="medical">
+                                <label for="womanBloodtype">
+                                    Группа крови
+                                    <input class="form__input" type="number" id="womanBloodtype" placeholder="1">
+                                    <span class="error-message"></span>
+                                </label>
+                                <label for="womanInsurance">
+                                    Больничная касса
+                                    <select id="womanInsurance">
+                                        <option value="" disabled selected>Выберите опцию</option>
+                                        <option value="1">Опция 1</option>
+                                        <option value="2">Опция 2</option>
+                                        <option value="3">Опция 3</option>
+                                    </select>
+                                </label>
+                                <label for="womanDoctor">
+                                    Имя гинеколога
+                                    <input class="form__input" type="text" id="womanDoctor"
+                                        placeholder="Sheldon Leffler">
+                                    <span class="error-message"></span>
+                                </label>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <div class="form__step">
+                        <h3>
+                            Данные супруга / донора спермы
+                        </h3>
+                        <div class="form__content">
+                            <label for="manName">
+                                Имя
+                                <input class="form__input" type="text" id="manName" placeholder="Rahsaan">
+                                <span class="error-message"></span>
+                            </label>
+                            <label for="manSurname">
+                                Фамилия
+                                <input class="form__input" type="text" id="manSurname" placeholder="Quigley">
+                                <span class="error-message"></span>
+                            </label>
+
+                            <label for="manStatus">
+                                Семейное положение
+                                <select id="manStatus">
+                                    <option value="" disabled selected>Выберите опцию</option>
+                                    <option value="1">Опция 1</option>
+                                    <option value="2">Опция 2</option>
+                                    <option value="3">Опция 3</option>
+                                </select>
+                            </label>
+                            <label for="manChildren">
+                                Количество детей
+                                <input class="form__input" type="number" id="manChildren" placeholder="0">
+                                <span class="error-message"></span>
+                            </label>
+
+                            <label for="manPhone">
+                                Телефон
+                                <input class="form__input" type="tel" id="manPhone" placeholder="946-501-2341">
+                                <span class="error-message"></span>
+                            </label>
+                            <label for="manEmail">
+                                Электронная почта
+                                <input class="form__input" type="email" id="manEmail" placeholder="example@mail.com">
+                                <span class="error-message"></span>
+                            </label>
+
+                            <label for="manCity">
+                                Город
+                                <input class="form__input" type="text" id="manCity" placeholder="Grantborough">
+                                <span class="error-message"></span>
+                            </label>
+                            <div class="address">
+                                <label for="manStreet">
+                                    Улица
+                                    <input class="form__input" type="text" id="manStreet" placeholder="Hilll Island">
+                                    <span class="error-message"></span>
+                                </label>
+                                <label class="small" for="manHouse">
+                                    №
+                                    <input class="form__input" type="number" id="manHouse" placeholder="961">
+                                    <span class="error-message"></span>
+                                </label>
+                            </div>
+
+                            <div class="medical">
+                                <label class="" for="manBloodtype">
+                                    Группа крови
+                                    <input class="form__input" type="number" id="manBloodtype" placeholder="1">
+                                    <span class="error-message"></span>
+                                </label>
+                                <label class="" for="manInsurance">
+                                    Больничная касса
+                                    <select id="manInsurance">
+                                        <option value="" disabled selected>Выберите опцию</option>
+                                        <option value="1">Опция 1</option>
+                                        <option value="2">Опция 2</option>
+                                        <option value="3">Опция 3</option>
+                                    </select>
+                                </label>
+                                <label class="" for="manDoctor">
+                                    Имя семейного врача
+                                    <input class="form__input" type="text" id="manDoctor" placeholder="Sheldon Leffler">
+                                    <span class="error-message"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form__step">
+                        <h3>
+                            Ключевые вопросы
+                        </h3>
+                        <div class="form__content">
+                            <label for="reason" class="full">
+                                Причина обращения в нашу компанию (рекомендация врача/другое)
+                                <textarea name="" id="reason" placeholder="Опишите причину обращения"></textarea>
+                                <span class="error-message"></span>
+                            </label>
+
+                            <label for="ecoText" class="full">
+                                Прежний опыт искусственного оплодотворения (ЭКО)
+                                <div class="wrap">
+                                    <label class="form_text custom-radio" for="noeco">
+                                        <input type="radio" class="form__input" id="noeco" name="eco" value="no">
+                                        <span class="radiomark"></span>
+                                        Нет
+                                    </label>
+                                    <label class="form_text custom-radio" for="eco">
+                                        <input type="radio" class="form__input" id="eco" name="eco" value="yes">
+                                        <span class="radiomark"></span>
+                                        Есть
+                                    </label>
+                                </div>
+                                <textarea class="hidden-textarea" name="" id="ecoText"
+                                    placeholder="Расскажите детали прежнего опыта"></textarea>
+
+                                <div class="form__content hidden-textarea">
+
+                                    <label for="when">
+                                        Когда
+                                        <input class="form__input" type="text" id="when" placeholder="02.07.2023">
+                                        <span class="error-message"></span>
+                                    </label>
+                                    <label for="result">
+                                        Результат
+                                        <input class="form__input" type="text" id="result"
+                                            placeholder="example@mail.com">
+                                        <span class="error-message"></span>
+                                    </label>
+
+                                    <label for="sperm">
+                                        Кто донор спермы
+                                        <input class="form__input" type="text" id="sperm" placeholder="Dixie Schneider">
+                                        <span class="error-message"></span>
+                                    </label>
+                                    <label for="ovum">
+                                        Кто донор яйцеклетки
+                                        <input class="form__input" type="text" id="ovum" placeholder="Kyle Thiel">
+                                        <span class="error-message"></span>
+                                    </label>
+
+                                    <label for="clinic">
+                                        Где произведена подсадка
+                                        <input class="form__input" type="text" id="clinic"
+                                            placeholder="Укажите клинику">
+                                        <span class="error-message"></span>
+                                    </label>
+                                    <label for="notWork">
+                                        Если не получилось, укажите причину
+                                        <input class="form__input" type="text" id="notWork"
+                                            placeholder="Опишите причину">
+                                        <span class="error-message"></span>
+                                    </label>
+
+                                </div>
+                            </label>
+                        </div>
+
+                    </div>
+
+                    <div class="form__step">
+                        <h3>
+                            Медицинская информация женщины
+                        </h3>
+                        <div class="form__content">
+                            <label for="sicknessText" class="full">
+                                Хронические заболевания
+                                <div class="wrap">
+                                    <label class="form_text custom-radio" for="noSickness">
+                                        <input type="radio" class="form__input" id="noSickness" name="sickness"
+                                            value="no">
+                                        <span class="radiomark"></span>
+                                        Нет
+                                    </label>
+                                    <label class="form_text custom-radio" for="yesSickness">
+                                        <input type="radio" class="form__input" id="yesSickness" name="sickness"
+                                            value="yes">
+                                        <span class="radiomark"></span>
+                                        Есть
+                                    </label>
+                                </div>
+                                <textarea class="hidden-textarea" name="" id="sicknessText"
+                                    placeholder="Перечислите названия заболеваний"></textarea>
+                                <span class="error-message"></span>
+                            </label>
+
+                            <label for="medicinesText" class="full">
+                                Постоянные лекарства
+                                <div class="wrap">
+                                    <label class="form_text custom-radio" for="noMedicines">
+                                        <input type="radio" class="form__input" id="noMedicines" name="medicines"
+                                            value="no">
+                                        <span class="radiomark"></span>
+
+                                        Нет
+                                    </label>
+                                    <label class="form_text custom-radio" for="yesMedicines">
+                                        <input type="radio" class="form__input" id="yesMedicines" name="medicines"
+                                            value="yes">
+                                        <span class="radiomark"></span>
+
+                                        Есть
+                                    </label>
+                                </div>
+                                <textarea class="hidden-textarea" name="" id="medicinesText"
+                                    placeholder="Перечислите названия лекарств"></textarea>
+                                <span class="error-message"></span>
+                            </label>
+
+                            <label for="allergiesText" class="full">
+                                Аллергии
+                                <div class="wrap">
+                                    <label class="form_text custom-radio" for="noAllergies">
+                                        <input type="radio" class="form__input" id="noAllergies" name="allergies"
+                                            value="no">
+                                        <span class="radiomark"></span>
+
+                                        Нет
+                                    </label>
+                                    <label class="form_text custom-radio" for="yesAllergies">
+                                        <input type="radio" class="form__input" id="yesAllergies" name="allergies"
+                                            value="yes">
+                                        <span class="radiomark"></span>
+
+                                        Есть
+                                    </label>
+                                </div>
+                                <textarea class="hidden-textarea" name="" id="allergiesText"
+                                    placeholder="Перечислите названия лекарств"></textarea>
+                                <span class="error-message"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button class="button" type="submit">Отправить анкету</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="wrapper">
+                <a href="/" class="footer__logo logo">
+                    <img class="logo__image" src="assets/images/header/logo.svg" alt="logo">
+                </a>
+                <nav class="footer__nav" id="contacts">
+                    <ul class="navigation__list footer__list--contact">
+                        <li class="navigation__item"><a href="mailto:info@ecobaby.co.il" class="navigation__link"> <img
+                                    src="assets/images/icon/mail.svg" alt="">info@ecobaby.co.il</a></li>
+                        <li class="navigation__item"><a href="tel:+97258-720-1166" class="navigation__link"><img
+                                    src="assets/images/icon/phone.svg" alt="">+97258-720-1166</a></li>
+                        <li class="navigation__item"><a href="https://t.me/ecobabyfertility"
+                                class="navigation__link"><img src="assets/images/icon/TelegramLogo.svg"
+                                    alt="">@ecobabyfertility</a></li>
+                    </ul>
+                </nav>
+                <button class="lang">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M16 28C22.6274 28 28 22.6274 28 16C28 9.37258 22.6274 4 16 4C9.37258 4 4 9.37258 4 16C4 22.6274 9.37258 28 16 28Z"
+                            stroke="#3A5F6F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                            d="M16 28C18.9455 28 21.3333 22.6274 21.3333 16C21.3333 9.37258 18.9455 4 16 4C13.0544 4 10.6666 9.37258 10.6666 16C10.6666 22.6274 13.0544 28 16 28Z"
+                            stroke="#3A5F6F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                            d="M4 15.9998C4 18.9454 9.37258 21.3332 16 21.3332C22.6274 21.3332 28 18.9454 28 15.9998C28 13.0543 22.6274 10.6665 16 10.6665C9.37258 10.6665 4 13.0543 4 15.9998Z"
+                            stroke="#3A5F6F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    ru
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9.33337 13.3333L16 20" stroke="#3A5F6F" stroke-width="4" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M16 20L22.6667 13.3333" stroke="#3A5F6F" stroke-width="4" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+
+                </button>
+            </div>
+            <div class="wrapper">
+                <p class="copy">ECOBABY © 2024</p>
+                <div class="privacy">
+                    <a href="" class="">Terms & Conditions</a>
+                    <a href="" class="">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11.1.4/swiper-bundle.min.js"></script>
+    <script src="assets/js/scripts.js"></script>
+</body>
+
+</html>

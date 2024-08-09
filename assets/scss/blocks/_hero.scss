@@ -1,0 +1,81 @@
+.hero {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 0 0 clamp(1.5rem, -27.95rem + 38vw, 6.25rem);
+    overflow: hidden;
+
+    @include phone {
+        padding: 0px;
+        margin-top: 16px;
+    }
+
+    & .wrapper {
+        padding-block: clamp(0rem, -2.045rem + 9.09vw, 5rem);
+    }
+
+    & .content {
+        max-width: 665px;
+
+        @include desktop {
+            max-width: clamp(34.375rem, -62.467rem + 151.32vw, 41.563rem);
+        }
+
+        @include tablet {
+            max-width: none;
+        }
+    }
+
+    & h1 {
+
+        margin-bottom: 24px;
+
+        @include phone {
+            margin-bottom: 0px;
+            padding: 0 24px;
+        }
+    }
+
+    & p {
+        @include fluid-text(24, 20);
+        font-weight: 500;
+        line-height: 1.3;
+
+        @include phone {
+            padding: 0 24px;
+        }
+    }
+
+    & img {
+        width: 100%;
+        max-width: 730px;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        translate: 0 -50%;
+
+        @include desktop {
+            max-width: 50vw;
+        }
+
+        @include tablet {
+            position: relative;
+            top: auto;
+            translate: 0 0;
+            margin: 0 auto;
+            max-width: none;
+        }
+
+        @include phone {
+            max-width: none;
+            margin: 16px 0;
+        }
+    }
+
+    & .button {
+        margin-top: clamp(2rem, 1.795rem + 0.91vw, 2.5rem);
+
+        @include phone {
+            margin-inline: auto;
+        }
+    }
+}

@@ -1,0 +1,58 @@
+.about {
+
+
+    &__cards {
+        padding: clamp(2.5rem, 1.477rem + 4.55vw, 5rem) 0 80px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        column-gap: 40px;
+        row-gap: 24px;
+
+        &-item {
+            max-width: 280px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 32px 24px;
+            border: 1px solid rgba(58, 95, 111, 0.15);
+            border-radius: 40px;
+
+            & h4 {
+                margin: 32px 0 8px;
+                text-align: center;
+                font-size: 20px;
+                font-weight: 800;
+                line-height: 24px;
+            }
+
+            & p {
+                text-align: center;
+                font-size: 16px;
+                font-weight: 600;
+                line-height: 24px;
+            }
+        }
+    }
+
+    & .wrapper {
+        gap: 24px 40px;
+        align-items: center;
+
+        @include tablet {
+            flex-direction: column;
+        }
+
+        & img {
+            @include desktop {
+                max-width: 40vw;
+                width: 100%;
+            }
+
+            @include tablet {
+                max-width: 530px;
+            }
+        }
+    }
+}
