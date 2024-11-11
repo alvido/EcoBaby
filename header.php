@@ -57,10 +57,39 @@
                     echo $menu;
                 }
                 ?>
-                <ul class="navigation__list navigation__list--contact">
-                    <?php dynamic_sidebar('header_center'); ?>
-                </ul>
+                <div class="navigation__list navigation__list--contact">
+                    <?php dynamic_sidebar('header_contact'); ?>
+                </div>
+                <button class="lang visible-mobile header__lang">
+                
+                    <?php
+                    $menu = wp_nav_menu([
+                        'theme_location' => 'language-menu',
+                        'container' => 'ul',
+                        'menu_class' => 'language__list',
+                    ]);
+                    if ($menu) {
+                        echo $menu;
+                    }
+                    ?>
+            </button>
             </nav>
+            <button class="lang hidden-mobile">
+                
+                    <?php
+                    $menu = wp_nav_menu([
+                        'theme_location' => 'language-menu',
+                        'container' => 'ul',
+                        'menu_class' => 'language__list',
+                    ]);
+                    if ($menu) {
+                        echo $menu;
+                    }
+                    ?>
+            </button>
+            <button class="header__burger burger" id="burgerButton">
+                <span>Menu</span>
+            </button>
         </div>
 
     </header>

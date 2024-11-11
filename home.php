@@ -10,7 +10,24 @@ Template Name: Blog
     
     <section class="news">
         <div class="news__inner container">
-            <h2 class="section__title">Полезные статьи</h2>
+            
+            <?php
+            // Получаем ID страницы записей (блога)
+            $blog_page_id = get_option('page_for_posts');
+            
+            // Получаем ID переведённой страницы в зависимости от языка
+            $lang = pll_current_language();
+            $translated_blog_page_id = pll_get_post($blog_page_id, $lang);
+            
+            // Получаем заголовок страницы
+            $translated_title = get_the_title($translated_blog_page_id);
+            
+            // Разбиваем заголовок на части
+            $translated_title_parts = explode(' ', $translated_title);
+        ?>
+            <h2 class="section__title">
+                <?php echo $translated_title_parts[0]; ?> <span><?php echo $translated_title_parts[1]; ?></span>
+            </h2>
 
             <ul class="news__list">
                 <?php

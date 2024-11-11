@@ -3,10 +3,10 @@
 if (has_post_thumbnail()) {
     // Виведення зображення посту
     the_post_thumbnail(
-        array(300, 250),
+        'full',
         array(
             'class' => 'news__img',
-            'style' => 'width: 100%; height: 200px;',
+            'style' => 'width: 100%; height: auto;',
         )
     );
 } else {

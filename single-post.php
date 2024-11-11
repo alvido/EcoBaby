@@ -4,7 +4,11 @@
     <article class="article">
         <div class="container">
 
-            <div class="article__img">
+           
+            <h1 class="section__title">
+                <?php the_title(); ?>
+            </h1>
+             <div class="article__img">
                 <?php
                 // Виведення зображення посту
                 the_post_thumbnail(
@@ -15,9 +19,6 @@
                 );
                 ?>
             </div>
-            <h1 class="section__title">
-                <?php the_title(); ?>
-            </h1>
             <div class="article__content">
                 <?php
                 while (have_posts()) :

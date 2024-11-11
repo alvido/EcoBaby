@@ -8,17 +8,23 @@ add_action('wp_enqueue_scripts', function () {
 
 	wp_enqueue_style('select2.css', 'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css');
 	wp_enqueue_style('swiper.css', 'https://cdn.jsdelivr.net/npm/swiper@11.1.4/swiper-bundle.min.css');
-	wp_enqueue_style('style.css', get_stylesheet_directory_uri() . '/assets/css/style.css');
+	
+	wp_enqueue_style('main-style', get_stylesheet_directory_uri() . '/assets/css/style.css');
+    if (is_rtl()) {
+        wp_enqueue_style('main-rtl-style', get_stylesheet_directory_uri() . '/assets/css/style-rtl.css');
+    }
 
-	wp_deregister_script('jquery');
-	wp_register_script('jquery', get_stylesheet_directory_uri() . '/assets/js/jquery.min.js', array(), null, true);
-	wp_enqueue_script('jquery');
+    // Дерегистрация встроенной jQuery и регистрация пользовательской версии
+    wp_deregister_script('jquery');
+    wp_register_script('jquery', get_stylesheet_directory_uri() . '/assets/js/jquery.min.js', array(), null, true);
+    wp_enqueue_script('jquery');
 
-
-	wp_enqueue_script('select2.js', 'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js');
-	wp_enqueue_script('swiper.js', 'https://cdn.jsdelivr.net/npm/swiper@11.1.4/swiper-bundle.min.js');
+	wp_enqueue_script('select2', 'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js', array('jquery'), null, true);
+	wp_enqueue_script('swiper.js', 'https://cdn.jsdelivr.net/npm/swiper@11.1.4/swiper-bundle.min.js', array('jquery'), null, true);
 
 	wp_enqueue_script('custom', get_stylesheet_directory_uri() . '/assets/js/scripts.js', array('jquery'), null, true);
+	
+
 });
 
 
@@ -121,48 +127,64 @@ function fix_svg_mime_type($data, $file, $filename, $mimes, $real_mime = '')
 function create_custom_post_type()
 {
 	register_post_type(
-		'services',
+		'reviews',
 		array(
 			'labels' => array(
-				'name' => __('Сервисы'),
-				// Назва типу постів у адмінці
-				'singular_name' => __('Сервис'),
-				// Назва одного поста
+				'name' => __('Reviews'),
+				'singular_name' => __('Review'),
 			),
 			'public' => true,
 			'has_archive' => true,
-			'rewrite' => array('slug' => 'services_post'),
-			// Власний slug для URL
+			'rewrite' => array('slug' => 'review'),
+			'show_in_rest' => true,
 			'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'custom-fields'),
+			'pll_the_language' => true, // Добавляем поддержку Polylang
+		)
+	);
+	register_post_type(
+		'questions',
+		array(
+			'labels' => array(
+				'name' => __('Questions'),
+				'singular_name' => __('Question'),
+			),
+			'public' => true,
+			'has_archive' => true,
+			'rewrite' => array('slug' => 'questions_post'),
+			'show_in_rest' => true,
+			'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'custom-fields'),
+			'pll_the_language' => true, // Добавляем поддержку Polylang
 		)
 	);
 }
 
 add_action('init', 'create_custom_post_type');
+
 // Custom post
 
 
-// Додати таксономію "Category" для типу постів "services"
-function create_custom_taxonomy()
-{
-	$labels = array(
-		'name' => __('Категории Сервисов'), // Назва таксономії в адмінці
-		'singular_name' => __('Категория Сервисов'), // Назва одного терміну
-	);
 
-	$args = array(
-		'labels' => $labels,
-		'public' => true,
-		'hierarchical' => true, // Це робить таксономію ієрархічною, схожою на категорії
-		'rewrite' => array('slug' => 'services_category'), // Власний slug для URL
-		'show_admin_column' => true, // Показувати колонку "Категорія" в адмінці
-	);
+// // Додати таксономію "Category" для типу постів "questions"
+// function create_custom_taxonomy()
+// {
+// 	$labels = array(
+// 		'name' => __('Категории Сервисов'), // Назва таксономії в адмінці
+// 		'singular_name' => __('Категория Сервисов'), // Назва одного терміну
+// 	);
 
-	register_taxonomy('services_category', 'services', $args);
-}
+// 	$args = array(
+// 		'labels' => $labels,
+// 		'public' => true,
+// 		'hierarchical' => true, // Це робить таксономію ієрархічною, схожою на категорії
+// 		'rewrite' => array('slug' => 'services_category'), // Власний slug для URL
+// 		'show_admin_column' => true, // Показувати колонку "Категорія" в адмінці
+// 	);
 
-add_action('init', 'create_custom_taxonomy');
-// Додати таксономію "Category" для типу постів "services"
+// 	register_taxonomy('services_category', 'services', $args);
+// }
+
+// add_action('init', 'create_custom_taxonomy');
+// // Додати таксономію "Category" для типу постів "services"
 
 
 
@@ -193,8 +215,8 @@ function misha_loadmore_ajax_handler()
 function custom_footer_widget()
 {
 	register_sidebar(array(
-		'name' => __('Header center', 'your-theme-textdomain'),
-		'id' => 'header_center',
+		'name' => __('Header contact', 'your-theme-textdomain'),
+		'id' => 'header_contact',
 		'description' => __('Widgets for the header', 'your-theme-textdomain'),
 		'before_widget' => '',
 		'after_widget' => '',
@@ -202,17 +224,8 @@ function custom_footer_widget()
 		'after_title' => ' </h4></div>',
 	));
 	register_sidebar(array(
-		'name' => __('Footer First  column', 'your-theme-textdomain'),
-		'id' => 'footer_1',
-		'description' => __('Widgets for the footer', 'your-theme-textdomain'),
-		'before_widget' => '',
-		'after_widget' => '',
-		'before_title' => '<div class="widget-title"><h4>',
-		'after_title' => ' </h4></div>',
-	));
-	register_sidebar(array(
-		'name' => __('Footer third column', 'your-theme-textdomain'),
-		'id' => 'footer_3',
+		'name' => __('Footer contact', 'your-theme-textdomain'),
+		'id' => 'footer_contact',
 		'description' => __('Widgets for the footer', 'your-theme-textdomain'),
 		'before_widget' => '',
 		'after_widget' => '',
@@ -226,3 +239,23 @@ add_action('widgets_init', 'custom_footer_widget');
 // отключение обертки <p> в Contact Gorm 7
 add_filter('wpcf7_autop_or_not', '__return_false');
 // отключение обертки <p> в Contact Gorm 7
+
+// Регистрация строки для перевода
+function my_register_strings() {
+    pll_register_string('reviews_name', 'Reviews', 'Custom Post Types');
+    pll_register_string('review_singular', 'Review', 'Custom Post Types');
+    pll_register_string('button_text', 'Посмотреть все', 'Theme Texts');
+    pll_register_string('link_more', 'Читать далее', 'Theme Texts');
+	pll_register_string('Please choose an option', 'Please choose an option', 'Contact Form 7');
+}
+add_action('init', 'my_register_strings');
+
+add_filter('wpcf7_form_elements', function($content) {
+    $content = str_replace('Please choose an option', pll__('Please choose an option'), $content);
+    return $content;
+});
+;
+
+
+
+//
